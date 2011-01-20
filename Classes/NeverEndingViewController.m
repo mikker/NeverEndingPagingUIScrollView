@@ -109,12 +109,12 @@
 }
 
 - (void)tilePages {
-  int historyCount = 3;
   CGRect visibleBounds = pagingView.bounds;
   int firstNeededPageIndex = floorf(CGRectGetMinX(visibleBounds) / CGRectGetWidth(visibleBounds));
   int lastNeededPageIndex  = floorf((CGRectGetMaxX(visibleBounds)-1) / CGRectGetWidth(visibleBounds));
+  int historyCount = 5;
   firstNeededPageIndex = MAX(firstNeededPageIndex-historyCount, 0);
-  lastNeededPageIndex  = MAX(lastNeededPageIndex+historyCount, 1);
+  lastNeededPageIndex  = MAX(lastNeededPageIndex+1, 1);
   
   // Recycle unneeded controllers
   for (PageViewController *vc in visiblePages) {
